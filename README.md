@@ -1,6 +1,6 @@
 # Production-Ready-Multi-Tier-DevOps-Deployment-on-AWS(Manual)
 
-NGINX + Tomcat + RabbitMQ + MariaDB | EC2 | ELB | ASG | ACM | S3 | Vagrant
+NGINX + Tomcat + RabbitMQ + MariaDB | EC2 | ELB | ASG | ACM | S3 
 
 📌 Overview
 This project demonstrates a highly available, scalable multi-tier application deployment on AWS Cloud using DevOps best practices.
@@ -35,8 +35,7 @@ o	Database using MariaDB
 ```
 ⚙️ Tech Stack
 •	AWS Cloud
-•	Vagrant
-•	Linux (Ubuntu/CentOS)
+•	EC2 Servers -- Linux (Ubuntu/CentOS)
 •	NGINX
 •	Apache Tomcat
 •	RabbitMQ
@@ -46,7 +45,6 @@ o	Database using MariaDB
 ```
 📁 Project Structure
 multi-tier-devops-aws/
- ├── Vagrantfile
  ├── scripts/
  │    ├── nginx.sh
  │    ├── tomcat.sh
