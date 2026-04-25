@@ -22,6 +22,7 @@ o	Database using MariaDB
 •	Used S3 for shared storage / artifact management
 •	Configured Security Groups & networking between tiers
 •	Ensured end-to-end communication across services
+![Project Architecture](images/vparch.png)
 ```
 ```
 ☁️ AWS Services Used
