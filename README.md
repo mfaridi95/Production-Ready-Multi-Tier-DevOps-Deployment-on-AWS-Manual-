@@ -22,7 +22,7 @@ o	Database using MariaDB
 •	Configured Security Groups & networking between tiers
 •	Ensured end-to-end communication across services
 
-![Project Architecture](vparch.png)
+![Project Architecture](images/vparch.png)
 
 
 ```
@@ -71,22 +71,22 @@ cd multi-tier-devops-aws
 
 •	Launch EC2 instances for each tier
 
-![EC2Launchscriptsusinguserdata](vprofilescripts.png)
+![EC2Launchscriptsusinguserdata](images/vprofilescripts.png)
 
 •	Configure Security Groups
 
-![Configure SG](vpsgs.png)
+![Configure SG](images/vpsgs.png)
 
 •	Attach instances to ELB
 
-![Configure ELB](vpelb.png)
+![Configure ELB](images/vpelb.png)
 
 •	Setup ASG for scaling
 
-![Configure ASG](vpami.png)
+![Configure ASG](images/vpami.png)
 •	Configure ACM for HTTPS
 
-![Configure ACM](vpacm.png)
+![Configure ACM](images/vpacm.png)
 
 •	Upload artifacts to S3
 
@@ -101,15 +101,15 @@ cd multi-tier-devops-aws
 🌐 Access
 •	Application URL: https://vprofileapp.mf95projects.xyz
 
-![Welcome page](vprofilewelcome.png)
+![Welcome page](images/vprofilewelcome.png)
 
-![Database page](vprofiledb.png)
+![Database page](images/vprofiledb.png)
 
-![Memcahe page](vpmemcache.png)
+![Memcahe page](images/vpmemcache.png)
 
-![Memcahe page](vpmem.png)
+![Memcahe page](images/vpmem.png)
 
-![RabbitMQ page](vprbmq.png)
+![RabbitMQ page](images/vprbmq.png)
 
 
 
