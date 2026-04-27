@@ -1,14 +1,14 @@
-# Production-Ready-Multi-Tier-DevOps-Deployment-on-AWS(Manual)
+# Production-Ready-Multi-Tier-DevOps-Deployment-on-AWS
 
 NGINX + Tomcat + RabbitMQ + MariaDB | EC2 | ELB | ASG | ACM | S3 
 
+```
 📌 Overview
 This project demonstrates a highly available, scalable multi-tier application deployment on AWS Cloud using DevOps best practices.
 The system is architected with separate layers for web, application, messaging, and database services, deployed across multiple EC2 instances with load balancing, auto scaling, and secure HTTPS access.
 
 🧠 What I Implemented (Key Highlights)
 •	Designed and deployed a 4-tier architecture
-•	Provisioned infrastructure using Vagrant (for base setup & reproducibility)
 •	Deployed services on AWS EC2 instances
 •	Configured:
 o	Reverse proxy using NGINX
@@ -21,6 +21,7 @@ o	Database using MariaDB
 •	Used S3 for shared storage / artifact management
 •	Configured Security Groups & networking between tiers
 •	Ensured end-to-end communication across services
+```
 
 ![Project Architecture](images/vparch.png)
 
