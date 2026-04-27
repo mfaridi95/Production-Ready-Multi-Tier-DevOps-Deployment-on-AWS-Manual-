@@ -22,7 +22,7 @@ o	Database using MariaDB
 •	Configured Security Groups & networking between tiers
 •	Ensured end-to-end communication across services
 
-![Project Architecture](vparch.png)
+![Project Architecture](images/vparch.png)
 
 
 ```
@@ -71,24 +71,40 @@ cd multi-tier-devops-aws
 
 •	Launch EC2 instances for each tier
 
-![EC2Launchscriptsusinguserdata](vprofilescripts.png)
+![EC2Launchscriptsusinguserdata](images/vprofilescripts.png)
 
 •	Configure Security Groups
 
-![Configure SG](vpsgs.png)
+![Configure SG](images/vpsgs.png)
 
 •	Attach instances to ELB
 
-![Configure ELB](vpelb.png)
+![Configure ELB](images/vpelb.png)
 
 •	Setup ASG for scaling
 
-![Configure ASG](vpami.png)
+![Configure ASG](images/vpami.png)
 •	Configure ACM for HTTPS
 
-![Configure ACM](vpacm.png)
+![Configure ACM](images/vpacm.png)
 
 •	Upload artifacts to S3
+![Artifact build flow](images/S3Artifactbuild.png)
+
+
+Phase 1 — AWS Setup: Create an S3 bucket to store artifacts. Create an IAM user with S3 full access and generate access keys (stored on your laptop for CLI authentication). Create an IAM role with S3 full access and attach it to the Tomcat EC2 instance (so the server can pull artifacts without needing hardcoded keys).
+
+Phase 2 — Build on local machine: Verify Maven, JDK 17, and AWS CLI are installed. Update `application.properties` with correct backend hostnames (DB, Memcache, RabbitMQ via Route 53 records). Run `mvn install` to build the `vprofile-v2.war` artifact. Configure AWS CLI with the IAM access keys (`aws configure`). Push the artifact to S3 using `aws s3 cp`.
+
+Phase 3 — Deploy on Tomcat EC2: SSH into the app server. Install AWS CLI via snap. Pull the artifact from S3 to `/tmp/`. Stop Tomcat, remove the default ROOT app, copy the `.war` as `ROOT.war`, and start Tomcat — which auto-extracts and serves the app.You can click any box in the diagram to ask a deeper question about that step. Here's the complete flow in a nutshell:
+
+AWS Setup creates the storage (S3 bucket), the authentication for your laptop (IAM user + access keys), and the authentication for the server (IAM role attached to EC2) — all before a single line of code is built.
+
+Local Build verifies your tools, updates the backend config, runs `mvn install` to produce the `.war` file, configures AWS CLI with your keys, then pushes the artifact to S3.
+
+EC2 DeploySSHes into the Tomcat server, installs AWS CLI, pulls the `.war` from S3, replaces the default Tomcat ROOT app with your artifact, and restarts Tomcat to serve the application.
+
+
 
 
 ```
@@ -101,15 +117,15 @@ cd multi-tier-devops-aws
 🌐 Access
 •	Application URL: https://vprofileapp.mf95projects.xyz
 
-![Welcome page](vprofilewelcome.png)
+![Welcome page](images/vprofilewelcome.png)
 
-![Database page](vprofiledb.png)
+![Database page](images/vprofiledb.png)
 
-![Memcahe page](vpmemcache.png)
+![Memcahe page](images/vpmemcache.png)
 
-![Memcahe page](vpmem.png)
+![Memcahe page](images/vpmem.png)
 
-![RabbitMQ page](vprbmq.png)
+![RabbitMQ page](images/vprbmq.png)
 
 
 
